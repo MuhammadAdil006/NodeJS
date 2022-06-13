@@ -30,7 +30,7 @@ app.get('/index',(req,res)=>{
     res.sendFile('/Views/index.html',{root:__dirname});
 });
 app.get('/blog/create',(req,res)=>{
-    res.render('create');
+    res.render('create',{title:'create'});
 });
 //3 redirects
 

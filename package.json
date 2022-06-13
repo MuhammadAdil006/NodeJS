@@ -1,7 +1,6 @@
 {
   "name": "nodejs",
   "version": "1.0.0",
-  "description": "",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -10,6 +9,16 @@
   "license": "ISC",
   "dependencies": {
     "express": "^4.18.1",
+    "lodash": "^4.17.21",
     "nodemon": "^2.0.16"
-  }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/MuhammadAdil006/NodeJS.git"
+  },
+  "bugs": {
+    "url": "https://github.com/MuhammadAdil006/NodeJS/issues"
+  },
+  "homepage": "https://github.com/MuhammadAdil006/NodeJS#readme",
+  "description": ""
 }

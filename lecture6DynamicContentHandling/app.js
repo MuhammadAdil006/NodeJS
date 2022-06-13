@@ -18,6 +18,9 @@ app.get('/',(req,res)=>{
     res.render('index',{title:'home',blogs});
 });
 
+// 4 partial templates
+//make a folder named partial and put all the partial templates in it
+
 // 1.1
 app.get('/about',(req,res)=>{
     res.render('about',{title:'about'});

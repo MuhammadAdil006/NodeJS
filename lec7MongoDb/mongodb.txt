@@ -1,0 +1,5 @@
+no sql db
+
+collections (each collection store particular data(documents))
+
+document (each document store a record in json format a key value pair)

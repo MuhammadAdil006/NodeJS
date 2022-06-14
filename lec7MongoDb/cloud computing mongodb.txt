@@ -1,0 +1,14 @@
+mongodbatlas
+cloud data base online
+make account
+
+build a cluster free one
+ cluster name
+
+then click collections
+
+add my own data
+
+make a password and user
+
+mongodb+srv://<username>:231388@mern.bcbyf8g.mongodb.net/?retryWrites=true&w=majority

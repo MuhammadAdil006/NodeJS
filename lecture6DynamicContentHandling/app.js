@@ -47,6 +47,7 @@ app.use((req,res,next)=>{
 //middleware and static files
 //by default css file private
 app.use(express.static('public'));
+app.use(express.urlencoded(true));
 //it will make files static public
 //3 how to pass data from handler to view
 app.get('/',(req,res)=>{
@@ -110,7 +111,8 @@ app.get('/single-doc',(req,res)=>{
 
 app.get('/all-blogs',(req,res)=>{
     Blog.find().then((result)=>{
-        res.send(result);
+       const tilte="home";
+        res.send(result,title);
     }).catch((err)=>{
         console.log(err);
     });
@@ -119,14 +121,35 @@ app.get('/all-blogs',(req,res)=>{
 app.post('/blog/create-blog',(req,res)=>{
 
 
-    const blog= new Blog();
-    const js=req.body.json;
-    console.log(js);
+    const blog= new Blog({title:req.body.title,msg:req.body.body});
+    console.log(req.body);
+    blog.save().then((result)=>{
+        console.log(result+" has been saved");
+        res.redirect('/');
+    })
+
 
 })
+app.get("/blogs/:id",(req,res)=>{
+    const id=req.params.id;
+    Blog.findById(id).then(result=>{
+        res.render('details',{blog:result,title:"BlogDetails"});
+    }).catch(err=>{
+        console.log(err);
+    });
+});
+//ajax requrest
+app.delete('/blogs/:id',(req,res)=>{
+    const id= req.params.id;
+    Blog.findByIdAndDelete(id).then((result)=>{
+        res.json({redirect:'/'});
+    }).catch(err=>{
+        console.log(err);
+    })
+});
 app.use((req,res)=>{
 
-    res.status(404).render('404');
+    res.status(404).render('404',{title:"404"});
 });
 //1 View Engines
 //1.1 it helps to add loops variables in html
@@ -138,3 +161,8 @@ app.use((req,res)=>{
 
 
 //outputiing these documents to views ejs
+
+
+//request types
+//request post type
+//route parameters

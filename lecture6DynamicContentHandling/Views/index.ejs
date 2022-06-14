@@ -22,8 +22,10 @@
             <div class="container">
                 <div class="row">
                     <div class="col-md-12">
-                        <h3><%= blog.title %></h3>
+                        <a class="" style="text-decoration:none;color:black;" href="/blogs/<%= blog.id %>">
+                            <h3><%= blog.title %></h3>
                         <p><%= blog.msg %></p>
+                        </a>
                     </div>
                 </div>
             </div>

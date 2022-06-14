@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+    <!-- adding partials -->
+    <%- include('../partials/head.ejs') %>
+ 
+<body>
+
+    <%- include('../partials/nav.ejs') %>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <a class="" style="text-decoration:none;color:black;" href="/blogs/<%= blog.id %>">
+                    <h3><%= blog.title %></h3>
+                <p><%= blog.msg %></p>
+                </a>
+                <a class="delete" data-doc="<%=blog.id%>">delete</a>
+            </div>
+        </div>
+    </div>
+    <script>
+        const trash=document.querySelector('a.delete');
+        console.log(trash);
+        const endpoints=`/blogs/${trash.dataset.doc}`;
+        trash.addEventListener('click',(e)=>{
+
+fetch(endpoints,{
+method:'DELETE'
+}).then((response)=>
+response.json()
+).then(data=>{
+
+    window.location.href= data.redirect;
+}).catch(err=>{
+console.log(err);
+});
+        });
+        
+    </script>
+</body>
